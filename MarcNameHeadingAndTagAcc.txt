@@ -443,5 +443,54 @@
     "description": "Rename column Corporate Name Heading to LCNAF Name Heading",
     "oldColumnName": "Corporate Name Heading",
     "newColumnName": "LCNAF Name Heading"
+  },
+  {
+    "op": "core/column-addition",
+    "description": "Create column LCNAF tag chomp at index 4 based on column LCNAF tag using expression grel:substring(value, 1)",
+    "engineConfig": {
+      "mode": "row-based",
+      "facets": []
+    },
+    "newColumnName": "LCNAF tag chomp",
+    "columnInsertIndex": 4,
+    "baseColumnName": "LCNAF tag",
+    "expression": "grel:substring(value, 1)",
+    "onError": "set-to-blank"
+  },
+  {
+    "op": "core/column-addition",
+    "description": "Create column Bib Record chomp at index 6 based on column Bib Record tag using expression grel:substring(value, 1)",
+    "engineConfig": {
+      "mode": "row-based",
+      "facets": []
+    },
+    "newColumnName": "Bib Record chomp",
+    "columnInsertIndex": 6,
+    "baseColumnName": "Bib Record tag",
+    "expression": "grel:substring(value, 1)",
+    "onError": "set-to-blank"
+  },
+  {
+    "op": "core/column-addition",
+    "description": "Create column Diff at index 7 based on column Bib Record chomp using expression grel:if(cells[\"LCNAF tag chomp\"].value == cells[\"Bib Record chomp\"].value, \"Same\", \"Different\")",
+    "engineConfig": {
+      "mode": "row-based",
+      "facets": []
+    },
+    "newColumnName": "Diff",
+    "columnInsertIndex": 7,
+    "baseColumnName": "Bib Record chomp",
+    "expression": "grel:if(cells[\"LCNAF tag chomp\"].value == cells[\"Bib Record chomp\"].value, \"Same\", \"Different\")",
+    "onError": "set-to-blank"
+  },
+  {
+    "op": "core/column-removal",
+    "description": "Remove column LCNAF tag chomp",
+    "columnName": "LCNAF tag chomp"
+  },
+  {
+    "op": "core/column-removal",
+    "description": "Remove column Bib Record chomp",
+    "columnName": "Bib Record chomp"
   }
 ]
