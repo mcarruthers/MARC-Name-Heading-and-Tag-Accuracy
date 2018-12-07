@@ -2,11 +2,11 @@
 This process is designed to check the accuracy of name heading fields (1xx and 7xx) in MARC records.
 This process is designed to check the accuracy of name heading fields (1xx and 7xx) in MARC records.  The XSLT scenario will run against a MARC XML file to extract the the name heading information from the file and format the output as a tab delimited text file.
 
-Then, using Google Refine and stable, publicly available APIs, the process automatically searches the Virtual International Authority File (VIAF) for matches to personal and corporate names, looks for a Library of Congress source authority record in the matching VIAF cluster, and extracts the authorized heading, as well as the corresponding heading tag from the authority record.  The end result is a dataset, exportable from Google Refine, with the corresponding authorized LCNAF heading paired with the name heading found in the bibliographic record, along with the corresponding MARC tags.
+Then, using OpenRefine and stable, publicly available APIs, the process automatically searches the Virtual International Authority File (VIAF) for matches to personal and corporate names, looks for a Library of Congress source authority record in the matching VIAF cluster, and extracts the authorized heading, as well as the corresponding heading tag from the authority record.  The end result is a dataset, exportable from Google Refine, with the corresponding authorized LCNAF heading paired with the name heading found in the bibliographic record, along with the corresponding MARC tags.
 
 This process is currently optimized for ICPSR MARC records, but can be generalized to work with any MARC data set.
 
-Instructions: To use this process, please have Google Refine v.2.5-r2407 installed. This can be downloaded here: http://openrefine.org/download.html
+Instructions: To use this process, please have OpenRefine installed. This can be downloaded here: http://openrefine.org/download.html
 
 1. Download the MARC XML file you wish to use.
 2. Run against MarcTagQualityCheck.xsl using tranformation engine of your choice (Saxon-PE 9.5.1.3 was used during development).
