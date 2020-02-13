@@ -1,5 +1,4 @@
 # MARC-Name-Heading-and-Tag-Accuracy
-This process is designed to check the accuracy of name heading fields (1xx and 7xx) in MARC records.
 This process is designed to check the accuracy of name heading fields (1xx and 7xx) in MARC records.  The XSLT scenario will run against a MARC XML file to extract the the name heading information from the file and format the output as a tab delimited text file.
 
 Then, using OpenRefine and stable, publicly available APIs, the process automatically searches the Virtual International Authority File (VIAF) for matches to personal and corporate names, looks for a Library of Congress source authority record in the matching VIAF cluster, and extracts the authorized heading, as well as the corresponding heading tag from the authority record.  The end result is a dataset, exportable from Google Refine, with the corresponding authorized LCNAF heading paired with the name heading found in the bibliographic record, along with the corresponding MARC tags.
